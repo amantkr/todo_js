@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="xyz">
+    <div>
+    <h1>To-Do </h1>
+    <h4>
+        1.Eat
+    </h4>
+    <input type = "text"></input>
+    <button onclick="addto()">Add</button>
+
+    <script>
+
+        let currentIndex = 0;
+
+        function addto(){
+        const x = document.querySelector("input");
+        let l = x.value;
+        l = l.trim();
+
+        if(l === "")
+        {
+            alert("Kuch likh de bsdk");
+            return;
+        }
+        const para = document.createElement("div");
+        para.innerHTML = "<div id= 'todo-"+ currentIndex +"'>" + x.value +" <button onclick = 'deleteTodo("+ currentIndex +")'>delete</button> </div>";
+           currentIndex++;
+        document.getElementById("xyz" ).appendChild(para);
+        }
+
+        function deleteTodo(index)
+        {
+            const x = document.getElementById("todo-"+index );
+            x.remove();
+        }
+
+    </script>
+    </div>
+</body>
+</html>
